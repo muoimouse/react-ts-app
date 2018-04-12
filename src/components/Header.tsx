@@ -1,38 +1,52 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { Nav, Button } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
+/// <reference path="./interfaces.d.ts" />
+
+class NavItem extends React.Component<HeaderLink, HeaderLink> {
+  constructor(props: HeaderLink) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <p className={`${this.props.className}`}>
+        <Link to={`${this.props.href}`}>{this.props.value}</Link>
+      </p>
+    );
+  }
+}
 
 class Header extends React.Component {
-    render() {
-        return (
-            <Nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                <div className="container">
-                    <p className="navbar-brand"><Link className="navbar-brand" to="#">Mouse blog</Link></p>
-                    <Button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"/>
-                    </Button>
-                    <div className="collapse navbar-collapse" id="navbarResponsive">
-                        <ul className="navbar-nav ml-auto">
-                            <li className="nav-item active" key="1">
-                                <p className="nav-link"><Link to="/">Home</Link>
-                                    <span className="sr-only">(current)</span>
-                                </p>
-                            </li>
-                            <li className="nav-item" key="2">
-                                <p className="nav-link"><Link to="about">About</Link></p>
-                            </li>
-                            <li className="nav-item" key="3">
-                                <p className="nav-link"><Link to="services">Services</Link></p>
-                            </li>
-                            <li className="nav-item" key="4">
-                                <p className="nav-link"><Link to="contact">Contact</Link></p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </Nav>
-        );
-    }
+  render() {
+    return (
+      <Navbar className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div className="container">
+          <NavItem className="navbar-brand" href="/" value="Mouse blog" />
+
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon" />
+          </button>
+          <div className="collapse navbar-collapse" id="navbarResponsive">
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item active" key="1">
+                <NavItem className="nav-link" href="/" value="Home" />
+              </li>
+              <li className="nav-item" key="2">
+                <NavItem className="nav-link" href="/about" value="About" />
+              </li>
+              <li className="nav-item" key="3">
+                <NavItem className="nav-link" href="/services" value="Services" />
+              </li>
+              <li className="nav-item" key="4">
+                <NavItem className="nav-link" href="contact" value="Contact" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </Navbar>
+    );
+  }
 }
 
 export default Header;
