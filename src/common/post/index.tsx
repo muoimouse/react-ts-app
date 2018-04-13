@@ -1,11 +1,11 @@
 import * as React from 'react';
 import LayoutPage from '../../components/LayoutPage';
-import Home from './Home';
+import Post from './Post';
 
 function action() {
   return (
     <LayoutPage>
-      <Home/>
+      <Post/>
     </LayoutPage>
   );
 }

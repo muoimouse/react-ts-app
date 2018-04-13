@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar } from 'react-bootstrap';
 /// <reference path="./interfaces.d.ts" />
 
 class NavItem extends React.Component<HeaderLink, HeaderLink> {
@@ -10,9 +9,7 @@ class NavItem extends React.Component<HeaderLink, HeaderLink> {
 
   render() {
     return (
-      <p className={`${this.props.className}`}>
-        <Link to={`${this.props.href}`}>{this.props.value}</Link>
-      </p>
+        <Link className={`${this.props.className}`} to={`${this.props.href}`}>{this.props.value}</Link>
     );
   }
 }
@@ -20,31 +17,32 @@ class NavItem extends React.Component<HeaderLink, HeaderLink> {
 class Header extends React.Component {
   render() {
     return (
-      <Navbar className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div className="container">
-          <NavItem className="navbar-brand" href="/" value="Mouse blog" />
-
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon" />
-          </button>
-          <div className="collapse navbar-collapse" id="navbarResponsive">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item active" key="1">
-                <NavItem className="nav-link" href="/" value="Home" />
-              </li>
-              <li className="nav-item" key="2">
-                <NavItem className="nav-link" href="/about" value="About" />
-              </li>
-              <li className="nav-item" key="3">
-                <NavItem className="nav-link" href="/services" value="Services" />
-              </li>
-              <li className="nav-item" key="4">
-                <NavItem className="nav-link" href="contact" value="Contact" />
-              </li>
-            </ul>
+      <div>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+          <div className="container">
+            <NavItem className="navbar-brand" href="/" value="Mouse Blog" />
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon" />
+            </button>
+            <div className="collapse navbar-collapse" id="navbarResponsive">
+              <ul className="navbar-nav ml-auto">
+                <li className="nav-item active" key="1">
+                  <NavItem className="nav-link" href="/" value="Home" />
+                </li>
+                <li className="nav-item" key="2">
+                  <NavItem className="nav-link" href="/about" value="About" />
+                </li>
+                <li className="nav-item" key="3">
+                  <NavItem className="nav-link" href="/services" value="Services" />
+                </li>
+                <li className="nav-item" key="4">
+                  <NavItem className="nav-link" href="contact" value="Contact" />
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </Navbar>
+        </nav>
+      </div>
     );
   }
 }
