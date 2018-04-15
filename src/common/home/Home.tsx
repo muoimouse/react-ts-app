@@ -9,7 +9,7 @@ class Post extends React.Component {
         <div className="card-body">
           <h2 className="card-title">Post Title</h2>
           <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-          <a href="post.html" className="btn btn-primary">Read More &rarr;</a>
+          <Link to="/post" className="btn btn-primary">Read More &rarr;</Link>
         </div>
         <div className="card-footer text-muted">
           Posted on January 1, 2017 by
@@ -40,6 +40,7 @@ class Content extends React.Component {
     return (
       <div>
         <Post />
+        <Post />
         <Pagination/>
       </div>
     );
@@ -50,9 +51,6 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <h1 className="my-4">Page Heading
-        <small>Secondary Text</small>
-        </h1>
         <Content/>
       </div>
     );

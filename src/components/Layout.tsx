@@ -1,9 +1,8 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-/// <reference path="./interfaces.d.ts" />
-
 import Header from './Header';
 import Footer from './Footer';
+/// <reference path="./interfaces.d.ts" />
 
 class Layout extends React.Component {
   static propTypes = {

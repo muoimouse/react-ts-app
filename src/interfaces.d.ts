@@ -3,3 +3,7 @@ interface HeaderLink {
   href: String;
   className: String;
 }
+
+interface ActionDefault {
+  type: String;
+}

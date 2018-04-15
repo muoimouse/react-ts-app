@@ -70,6 +70,18 @@ class TagWidget extends React.Component {
   }
 }
 
+class Widget extends React.Component {
+  render() {
+    return (
+      <div>
+        <SearchWidget/>
+        <CategoryWidget/>
+        <TagWidget/>
+      </div>
+    );
+  }
+}
+
 class Content extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
@@ -84,9 +96,7 @@ class Content extends React.Component {
           </div>
           {/*Sidebar Widgets Column*/}
           <div className="col-md-4">
-            <SearchWidget/>
-            <CategoryWidget/>
-            <TagWidget/>
+            <Widget/>
           </div>
         </div>
       </div>
